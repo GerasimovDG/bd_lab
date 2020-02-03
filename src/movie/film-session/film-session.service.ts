@@ -108,4 +108,16 @@ export class FilmSessionService {
   getFilmSessions(filmName: string): FilmSessionTime[] {
     return this.filmsessions[filmName];
   }
+
+  editFilmSession(filmName: string, newData: FilmSessionTime): boolean {
+    let flag = false;
+    this.filmsessions[filmName].forEach( obj => {
+      if (obj.time.toString() === newData.time.toString() && obj.cinema.toLowerCase() === newData.cinema.toLowerCase()) {
+        obj.hall = newData.hall;
+        flag = true;
+      }
+    });
+
+    return flag;
+  }
 }

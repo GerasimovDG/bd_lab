@@ -1,19 +1,24 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Put } from '@nestjs/common';
 import { FilmSessionService } from './film-session.service';
-import { FilmSession, FilmSessionTime } from './film-session.interface';
+import { BookingInfo, FilmSession, FilmSessionTime } from './film-session.interface';
 
 @Controller('filmSession')
 export class FilmSessionController {
-  constructor(private readonly filmSessionServiceService: FilmSessionService) {
+  constructor(private readonly filmSessionService: FilmSessionService) {
   }
 
   @Get()
   async findAll(): Promise<FilmSession> {
-    return this.filmSessionServiceService.findAll();
+    return this.filmSessionService.findAll();
   }
 
   @Get(':name')
   async getFilm(@Param() params): Promise<FilmSessionTime[]> {
-    return this.filmSessionServiceService.getFilmSessions(params.name);
+    return this.filmSessionService.getFilmSessions(params.name);
+  }
+
+  @Put()
+  async editPlaces(@Body()  bookingInfo: BookingInfo): Promise<boolean> {
+    return this.filmSessionService.editFilmSession(bookingInfo.film.name, bookingInfo.session);
   }
 }
