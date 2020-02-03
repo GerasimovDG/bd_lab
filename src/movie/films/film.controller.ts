@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { FilmService } from './film.service';
 import { Film } from './film.interface';
 
@@ -11,5 +11,10 @@ export class FilmController {
   @Get()
   async findAll(): Promise<Film[]> {
     return this.filmService.findAll();
+  }
+
+  @Get(':id')
+  async getFilm(@Param() params): Promise<Film> {
+    return this.filmService.getFilmByID(params.id);
   }
 }

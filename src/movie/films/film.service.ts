@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Film } from './film.interface';
-import { environment } from '../environment/environment';
+import { environment } from '../../environment/environment';
 
 @Injectable()
 export class FilmService {
@@ -106,5 +106,11 @@ export class FilmService {
 
   findAll(): Film[] {
     return this.films;
+  }
+
+  getFilmByID(id: number): Film {
+    return this.films.find( film => {
+      return film.id.toString() === id.toString();
+    });
   }
 }
