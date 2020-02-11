@@ -1142,8 +1142,8 @@
         "signature": "68da8ad32d19379c75e8f9cb385bfef332531ff286dc6dddf174c2ea35384469"
       },
       "../src/environment/environment.ts": {
-        "version": "c55f24ed1d02e3f6e1559aba5113edab2c45ba5316a9a4b9a59c41dbb968bd2b",
-        "signature": "edf95fbd061e0c8cd202f5d02ad8765875734523a26eb181487e15abfff979ed"
+        "version": "2f212fbb100d056f27e46f9406fc79766477e888c1118b72118113073e29c347",
+        "signature": "4a25165473ac2c1223749f7430bba74a0192de8f03744693f5ee62c885a061de"
       },
       "../src/movie/films/film.service.ts": {
         "version": "035466b5d58cd9029467cb67dbc152bf58e7a7c7217b956f556b511439f14182",
