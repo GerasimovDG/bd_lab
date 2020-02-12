@@ -126,13 +126,34 @@ class FilmSessionService {
         return this.filmsessions[filmName];
     }
     editFilmSession(filmName, newData) {
-        let flag = false;
-        this.filmsessions[filmName].forEach(obj => {
+        let flag = true;
+        for (const obj of this.filmsessions[filmName]) {
             if (obj.time.toString() === newData.time.toString() && obj.cinema.toLowerCase() === newData.cinema.toLowerCase()) {
-                obj.hall = newData.hall;
-                flag = true;
+                for (let i = 0; i < obj.hall.places.length; i++) {
+                    for (let j = 0; j < obj.hall.places[i].length; j++) {
+                        if (newData.hall.places[i][j] === 1) {
+                            if (obj.hall.places[i][j] === 2) {
+                                flag = false;
+                                return;
+                            }
+                        }
+                    }
+                }
             }
-        });
+        }
+        if (flag === true) {
+            for (const obj of this.filmsessions[filmName]) {
+                if (obj.time.toString() === newData.time.toString() && obj.cinema.toLowerCase() === newData.cinema.toLowerCase()) {
+                    for (let i = 0; i < obj.hall.places.length; i++) {
+                        for (let j = 0; j < obj.hall.places[i].length; j++) {
+                            if (newData.hall.places[i][j] === 1) {
+                                obj.hall.places[i][j] = 2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return flag;
     }
 }

@@ -1,9 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.hostname = process.env.HOST || 'localhost';
-exports.port = process.env.PORT || '3000';
 exports.environment = {
     production: false,
-    apiUrl: `http://${exports.hostname}:${exports.port}/`,
+    apiUrl: 'https://backend-for-lab.herokuapp.com',
 };
 //# sourceMappingURL=environment.js.map
