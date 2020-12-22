@@ -134,7 +134,7 @@ class FilmSessionService {
                         if (newData.hall.places[i][j] === 1) {
                             if (obj.hall.places[i][j] === 2) {
                                 flag = false;
-                                return;
+                                return flag;
                             }
                         }
                     }

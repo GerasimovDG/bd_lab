@@ -119,7 +119,7 @@ export class FilmSessionService {
               if (obj.hall.places[i][j] === 2) {
                 // уже куплено, возвращаем ошибку
                 flag = false;
-                return;
+                return flag;
               }
             }
           }
